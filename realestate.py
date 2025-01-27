@@ -103,31 +103,31 @@ for v in values:
     }, 
     'hasPaidPreSale': True, 'more': True, 'TIME': False, 'z': 13, 'page': 1, 
     'body': [
-        {'atclNo': '2504375518', 
+        {'atclNo': '2504375518', # 매물번호
         'cortarNo': '1165010600', 
         'atclNm': '잠원대우아이빌', 
         'atclStatCd': 'R0', 
         'rletTpCd': 'A01', 
         'uprRletTpCd': 'A01', 
         'rletTpNm': '아파트', 
-        'tradTpCd': 'B1', 
-        'tradTpNm': '전세', 
+        'tradTpCd': 'B1', # A1: 매매, B1: 전세, C1: 월세
+        'tradTpNm': '전세', # 매매, 전세, 월세
         'vrfcTpCd': 'SITE', 
-        'flrInfo': '중/12', 
+        'flrInfo': '중/12', # 층수
         'prc': 35000, 
         'rentPrc': 0, 
         'hanPrc': '3억 5,000', 
         'spc1': '51', 
         'spc2': '35.38', 
         'direction': '동향', 
-        'atclCfmYmd': '25.01.24.', 
+        'atclCfmYmd': '25.01.24.', # 확인 날짜
         'repImgUrl': 
         '/20250124_283/1737727863849jsQnj_JPEG/591b46a118ff3b92e3f8bc97e59bb52a.JPG', 
         'repImgTpCd': 'SITE', 
         'repImgThumb': 'f130_98', 
         'lat': 37.511488, 
         'lng': 127.01827, 
-        'atclFetrDesc': '원룸 분리형 융자무  전세대출가능 빠른입주가능', 
+        'atclFetrDesc': '원룸 분리형 융자무  전세대출가능 빠른입주가능', # 매물특징
         'tagList': ['25년이내', '역세권', '세대분리'], 
         'bildNm': '3동', 
         'minute': 0, 
