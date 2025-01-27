@@ -78,27 +78,28 @@ for v in values:
         l_data = l_response.json()
 
 """
-{'code': 'success', 'paidPreSale': {
-    'preSaleComplexNumber': 6026967, 
-    'preSaleComplexName': '서초아트래디앙', 
-    'preSaleAddress': '서울시 서초구 서초동', 
-    'preSaleAddressSector': '서초동',
-    'preSaleDetailAddress': '1582-16', 
-    'preSaleStageCode': 'C12', '
-    'preSaleTypeCode': 'IA01', 
-    'preSaleFormCode': '11', 
-    'occupancyYearMonth': '2023.06', 
-    'thumbnail': 'https://landthumb-phinf.pstatic.net/20231226_174/land_naver_1703553605142hVV1V_PNG/uploadfile_202303233002535.png', 
-    'featureMarkTypeCode': '1', 
-    'minPreSalePrice': 1455000000, 
-    'maxPreSalePrice': 2600000000, 
-    'minPreSaleArea': 60.74, 
-    'maxPreSaleArea': 102.17, 
-    'totalHouseholdsNumber': 24, 
-    'preSaleHouseholdsNumber': 24, 
-    'xcoordinate': 127.010792, 
-    'ycoordinate': 37.486794, 
-    'preSaleDetailsPageURL': 'https://isale.land.naver.com/NewiSaleMobile/Home/#SYDetail?build_dtl_cd=6026967&supp_cd=9038457'
+{'code': 'success', 
+    'paidPreSale': {  # 광고
+        'preSaleComplexNumber': 6026967, 
+        'preSaleComplexName': '서초아트래디앙', 
+        'preSaleAddress': '서울시 서초구 서초동', 
+        'preSaleAddressSector': '서초동',
+        'preSaleDetailAddress': '1582-16', 
+        'preSaleStageCode': 'C12', '
+        'preSaleTypeCode': 'IA01', 
+        'preSaleFormCode': '11', 
+        'occupancyYearMonth': '2023.06', 
+        'thumbnail': 'https://landthumb-phinf.pstatic.net/20231226_174/land_naver_1703553605142hVV1V_PNG/uploadfile_202303233002535.png', 
+        'featureMarkTypeCode': '1', 
+        'minPreSalePrice': 1455000000, 
+        'maxPreSalePrice': 2600000000, 
+        'minPreSaleArea': 60.74, 
+        'maxPreSaleArea': 102.17, 
+        'totalHouseholdsNumber': 24, 
+        'preSaleHouseholdsNumber': 24, 
+        'xcoordinate': 127.010792, 
+        'ycoordinate': 37.486794, 
+        'preSaleDetailsPageURL': 'https://isale.land.naver.com/NewiSaleMobile/Home/#SYDetail?build_dtl_cd=6026967&supp_cd=9038457'
     }, 
     'hasPaidPreSale': True, 'more': True, 'TIME': False, 'z': 13, 'page': 1, 
     'body': [
@@ -155,5 +156,6 @@ for v in values:
         'dtlAddrYn': 'N', 
         'dtlAddr': '', 
         'isVrExposed': False}, 
-        }
+    }
+}
 """
