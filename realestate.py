@@ -6,6 +6,15 @@ import pandas as pd
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+"""
+현재는 아파트 전세 데이터를 수집하였음
+추후에는 빌라 전세 단독/다가구, 빌라, 투룸 데이터를 수집  
+
+tradTpCd = [{tagCd: 'B1'}] 전세
+rletTpCd = [{tagCd: 'DDDGG'}, {tagCd: 'VL'}] 단독/다가구, 빌라
+tag: TWOROOM 투룸
+"""
+
 keyword = "서초구"
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
