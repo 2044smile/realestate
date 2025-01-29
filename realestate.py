@@ -61,6 +61,7 @@ result_data = []
 
 # 큰 원으로 구성되어 있는 전체 매물그룹(values)을 load 하여 한 그룹씩 세부 쿼리 진행
 for v in values:
+    #  v: {'lgeo': '212210111', 'count': 1186, 'z': 13, 'lat': 37.5078125, 'lon': 127.01513672, 'psr': 0.8, 'tourExist': False
     lgeo = v['lgeo']
     count = v['count']
     z2 = v['z']
@@ -72,7 +73,7 @@ for v in values:
         
         l_url = "https://m.land.naver.com/cluster/ajax/articleList?""itemId={}&mapKey=&lgeo={}&showR0=&" \
                "rletTpCd={}&tradTpCd={}&z={}&lat={}&""lon={}&totCnt={}&cortarNo={}&page={}"\
-            .format(lgeo, lgeo, rletTpCds, tradTpCds, z2, lat2, lon2, count,cortarNo, idx)
+            .format(lgeo, lgeo, tradTpCds, z2, lat2, lon2, count, cortarNo, idx)  # rletTpCds(상가)
         
         l_response = requests.get(l_url, headers=headers)
         l_data = l_response.json()
