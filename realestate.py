@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 tradTpCd = [{tagCd: 'B1'}] 전세
 rletTpCd = [{tagCd: 'DDDGG'}, {tagCd: 'VL'}] 단독/다가구, 빌라
-tag: TWOROOM 투룸
+tag: TWOROOM 투룸, PARKINGYN 주차가능
 """
 
 keyword = "서초구"
