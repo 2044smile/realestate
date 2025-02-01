@@ -10,7 +10,12 @@
 
 - 추출한 데이터는 `Excel or CSV` 로 저장
 - 크롤링으로 하루에 한번 `서초구 투룸 전세` 데이터가 나온다면 그 데이터만 가져온다
-- 청년전용 버팀목 전세 자금 대출 3억 대출 한도
-- 보증보험
+- 청년전용 버팀목 전세 자금 대출 3억 대출 한도, 보증보험
+
+## options
+
+- tradTpCds = 전세 `&tradTpCd=B1`
+- rletTpCds = 단독/다가구, 빌라 `&rletTpCd=DDDGG,VL`
+- tag = `&tag=TWOROOM,PARKINGYN`
 
 ![alt text](image.png)
