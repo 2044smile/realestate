@@ -97,7 +97,9 @@ for v in values:
                 print(f"Error: Received status code {f_response.status_code} for article URL: {f_url}")
                 continue
             
-            introduction_to_sale = re.search(r'<span class="ArticleDetailInfo_description__AFP5K">(.*?)</span>', f_response.text, re.DOTALL)
+            introduction_to_sale = re.search(r'<span class="ArticleDetailInfo_description__AFP5K">(.*?)</span>', f_response.text, re.DOTALL) # 매물소개
+            # price = re.search(r'<span class="ArticleSummary_info-price__BD9wv">(.*?)</span>', f_response.text, re.DOTALL) # 매물 전세가
+            # cost = re.search(r'<div class="ArticlePriceInfo_area-data__Ec_SF">(.*?)</span>', f_response.text, re.DOTALL) # 매물 관리비
             if introduction_to_sale:
                 description_text = introduction_to_sale.group(1)
             else:
@@ -110,7 +112,8 @@ for v in values:
                 'lat': lat2,
                 'lon': lon2,
                 'atcl_no': atcl_no,
-                'description': description_text
+                # 'atcl_price': price,
+                'atcl_description': description_text
             }
 
             # article_info를 리스트에 추가

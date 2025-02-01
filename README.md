@@ -21,5 +21,6 @@
 - TODO: 관리비
 - TODO: 층수 
 - TODO: 주소지 & 네이버 맵 바로가기
+- TODO: 매물 사진
 
 ![alt text](image.png)
