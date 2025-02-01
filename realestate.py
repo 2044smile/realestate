@@ -6,14 +6,6 @@ import pandas as pd
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-"""
-현재는 아파트 전세 데이터를 수집하였음
-추후에는 빌라 전세 단독/다가구, 빌라, 투룸 데이터를 수집  
-
-tradTpCd = [{tagCd: 'B1'}] 전세
-rletTpCd = [{tagCd: 'DDDGG'}, {tagCd: 'VL'}] 단독/다가구, 빌라
-tag: TWOROOM 투룸, PARKINGYN 주차가능
-"""
 
 keyword = "서초구"
 headers = {
@@ -34,7 +26,6 @@ lat = value.split("lat:")[1].split(",")[0]
 lon = value.split("lon:")[1].split(",")[0]
 z = value.split("z:")[1].split(",")[0]
 cortarNo = value.split("cortarNo:")[1].split(",")[0]
-tradTpCds = value.split("tradTpCds:")[1].split()[0]
 
 lat_margin = 0.118
 lon_margin = 0.111
@@ -45,20 +36,26 @@ top = float(lat) + lat_margin
 rgt = float(lon) + lon_margin
 
 tradTpCds = "B1"
+rletTpCds = "DDDGG,VL"
+tags = "TWOROOM,PARKINGYN"
 
-detail_url = "https://m.land.naver.com/cluster/clusterList?view=atcl&cortarNo={}&tradTpCd={}&z={}&lat={}&lon={}&btm={}&lft={}&top={}&rgt={}"\
-    .format(cortarNo, tradTpCds, z, lat, lon, btm, lft, top, rgt)
+detail_url = "https://m.land.naver.com/cluster/clusterList?view=atcl&cortarNo={}&tradTpCd={}&rletTpCd={}&z={}&lat={}&lon={}&tag={}&btm={}&lft={}&top={}&rgt={}"\
+    .format(cortarNo, tradTpCds, rletTpCds, z, lat, lon, tags, btm, lft, top, rgt)
 
 detail_response = requests.get(detail_url, headers=headers)
 json_str = json.loads(json.dumps(detail_response.json()))
 
 values = json_str['data']['ARTICLE']
+"""
+{'lgeo': '212032330', 'count': 326, 'lat': 37.4765625, 'lon': 126.99853516, 'psr': 0.8, 'tourExist': True}, 
+{'lgeo': '212210111', 'count': 1117, 'lat': 37.50625, 'lon': 127.01679688, 'psr': 0.8, 'tourExist': False}
+"""
 result_data = []
 
 for v in values:
     lgeo = v['lgeo']
     count = v['count']
-    z2 = v['z']
+    z2 = z  # 지역구에 따라 정해지는 것 같음
     lat2 = v['lat']
     lon2 = v['lon']
 
@@ -68,11 +65,24 @@ for v in values:
     for idx in range(1, len_pages + 1):
         print(f"{v}-{idx}")
         l_url = "https://m.land.naver.com/cluster/ajax/articleList?itemId={}&mapKey=&lgeo={}&showR0=&" \
-                "tradTpCd={}&z={}&lat={}&lon={}&totCnt={}&cortarNo={}&page={}"\
-            .format(lgeo, lgeo, tradTpCds, z2, lat2, lon2, count, cortarNo, idx)
+                "tradTpCd={}&rletTpCd={}&tag={}&z={}&lat={}&lon={}&tag=&totCnt={}&cortarNo={}&page={}"\
+            .format(lgeo, lgeo, tradTpCds, rletTpCds, tags, z2, lat2, lon2, count, cortarNo, idx)
         
         l_response = requests.get(l_url, headers=headers)
-        l_data = l_response.json()
+
+        if not l_response.text.strip():  # 응답이 비어 있는 경우
+            print("Error: Response is empty")
+        else:
+            try:
+                l_data = l_response.json()
+            except json.JSONDecodeError:
+                print("Error: Response is not a valid JSON")
+                print(l_response.text)  # 응답 내용을 출력해서 문제 파악
+
+        if 'body' not in l_data:
+            print("Error: 'body' key not found in response")
+            print(l_data)  # 문제 파악을 위해 출력
+            continue  # 다음 페이지로 이동
 
         for article in l_data['body']:
             atcl_no = article.get('atclNo')
