@@ -17,5 +17,9 @@
 - tradTpCds = 전세 `&tradTpCd=B1`
 - rletTpCds = 단독/다가구, 빌라 `&rletTpCd=DDDGG,VL`
 - tag = `&tag=TWOROOM,PARKINGYN`
+- TODO: 전세가
+- TODO: 관리비
+- TODO: 층수 
+- TODO: 주소지 & 네이버 맵 바로가기
 
 ![alt text](image.png)
