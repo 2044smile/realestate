@@ -115,4 +115,4 @@ df = pd.DataFrame(result_data)
 
 # CSV 파일로 저장
 file_name = f"./data/{formatted_data}.csv"
-df.to_csv(file_name, index=False, encoding='utf-8')
+df.to_csv(file_name, index=False, encoding='utf-8-sig')
