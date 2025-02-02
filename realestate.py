@@ -1,6 +1,8 @@
 import re
 import json
 import math
+import time
+import random
 import requests
 import pandas as pd
 from datetime import datetime
@@ -68,6 +70,7 @@ for v in values:
                 "tradTpCd={}&rletTpCd={}&tag={}&z={}&lat={}&lon={}&tag=&totCnt={}&cortarNo={}&page={}"\
             .format(lgeo, lgeo, tradTpCds, rletTpCds, tags, z2, lat2, lon2, count, cortarNo, idx)
         
+        time.sleep(random.uniform(1, 3))
         l_response = requests.get(l_url, headers=headers)
 
         if not l_response.text.strip():  # 응답이 비어 있는 경우
