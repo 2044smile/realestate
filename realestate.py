@@ -26,7 +26,8 @@ soup = (str(BeautifulSoup(init_response.text, "lxml")))
 value = soup.split("filter: {")[1].split("}")[0].replace(" ", "").replace("'", "")
 lat = value.split("lat:")[1].split(",")[0]
 lon = value.split("lon:")[1].split(",")[0]
-z = value.split("z:")[1].split(",")[0]
+# z = value.split("z:")[1].split(",")[0]
+z = '13'  # 구 단위
 cortarNo = value.split("cortarNo:")[1].split(",")[0]
 
 lat_margin = 0.118
@@ -101,12 +102,12 @@ for v in values:
                 continue
             
             introduction_to_sale = re.search(r'<span class="ArticleDetailInfo_description__AFP5K">(.*?)</span>', f_response.text, re.DOTALL) # 매물소개
-            # price = re.search(r'<span class="ArticleSummary_info-price__BD9wv">(.*?)</span>', f_response.text, re.DOTALL) # 매물 전세가
-            # cost = re.search(r'<div class="ArticlePriceInfo_area-data__Ec_SF">(.*?)</span>', f_response.text, re.DOTALL) # 매물 관리비
-            if introduction_to_sale:
-                description_text = introduction_to_sale.group(1)
-            else:
-                description_text = ''
+            price = re.search(r'<span class="ArticleSummary_info-price__BD9wv">(.*?)</span>', f_response.text, re.DOTALL) # 매물 전세가
+            cost = re.search(r'<div class="ArticlePriceInfo_area-data__Ec_SF">(.*?)</span>', f_response.text, re.DOTALL) # 매물 관리비
+
+            description_text = introduction_to_sale.group(1) if introduction_to_sale else ""
+            price_text = price.group(1) if price else ""
+            cost_text = cost.group(1).split('<')[0] if cost else ""
 
             article_info = {
                 'lgeo': lgeo,
@@ -115,7 +116,8 @@ for v in values:
                 'lat': lat2,
                 'lon': lon2,
                 'atcl_no': atcl_no,
-                # 'atcl_price': price,
+                'atcl_price': " ".join(price_text.split(' ')[1:]),
+                'atcl_cost': cost_text,
                 'atcl_description': description_text
             }
 

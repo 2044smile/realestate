@@ -17,10 +17,11 @@
 - tradTpCds = 전세 `&tradTpCd=B1`
 - rletTpCds = 단독/다가구, 빌라 `&rletTpCd=DDDGG,VL`
 - tag = `&tag=TWOROOM,PARKINGYN`
-- TODO: 전세가
-- TODO: 관리비
+- 전세가
+- 관리비
 - TODO: 층수 
 - TODO: 주소지 & 네이버 맵 바로가기
 - TODO: 매물 사진
+- TODO: 3억원 이하
 
 ![alt text](image.png)
