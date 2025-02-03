@@ -41,9 +41,10 @@ rgt = float(lon) + lon_margin
 tradTpCds = "B1"
 rletTpCds = "DDDGG,VL"
 tags = "TWOROOM,PARKINGYN"
+wprcMax = 30000
 
-detail_url = "https://m.land.naver.com/cluster/clusterList?view=atcl&cortarNo={}&tradTpCd={}&rletTpCd={}&z={}&lat={}&lon={}&tag={}&btm={}&lft={}&top={}&rgt={}"\
-    .format(cortarNo, tradTpCds, rletTpCds, z, lat, lon, tags, btm, lft, top, rgt)
+detail_url = "https://m.land.naver.com/cluster/clusterList?view=atcl&cortarNo={}&tradTpCd={}&rletTpCd={}&z={}&lat={}&lon={}&tag={}&btm={}&lft={}&top={}&rgt={}&wprcMax={}"\
+    .format(cortarNo, tradTpCds, rletTpCds, z, lat, lon, tags, btm, lft, top, rgt, wprcMax)
 
 detail_response = requests.get(detail_url, headers=headers)
 json_str = json.loads(json.dumps(detail_response.json()))
@@ -68,8 +69,8 @@ for v in values:
     for idx in range(1, len_pages + 1):
         print(f"{v}-{idx}")
         l_url = "https://m.land.naver.com/cluster/ajax/articleList?itemId={}&mapKey=&lgeo={}&showR0=&" \
-                "tradTpCd={}&rletTpCd={}&tag={}&z={}&lat={}&lon={}&tag=&totCnt={}&cortarNo={}&page={}"\
-            .format(lgeo, lgeo, tradTpCds, rletTpCds, tags, z2, lat2, lon2, count, cortarNo, idx)
+                "tradTpCd={}&rletTpCd={}&tag={}&z={}&lat={}&lon={}&tag=&totCnt={}&cortarNo={}&page={}&wprcMax={}"\
+            .format(lgeo, lgeo, tradTpCds, rletTpCds, tags, z2, lat2, lon2, count, cortarNo, idx, wprcMax)
         
         time.sleep(random.uniform(1, 3))
         l_response = requests.get(l_url, headers=headers)
