@@ -26,3 +26,8 @@
 - TODO: 반지하 제외
 
 ![alt text](image.png)
+
+## real distance
+
+- geopy (위도/경도)
+- Google maps api
