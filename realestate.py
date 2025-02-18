@@ -105,6 +105,7 @@ for v in values:
             introduction_to_sale = re.search(r'<span class="ArticleDetailInfo_description__AFP5K">(.*?)</span>', f_response.text, re.DOTALL) # 매물소개
             price = re.search(r'<span class="ArticleSummary_info-price__BD9wv">(.*?)</span>', f_response.text, re.DOTALL) # 매물 전세가
             cost = re.search(r'<div class="ArticlePriceInfo_area-data__Ec_SF">(.*?)</span>', f_response.text, re.DOTALL) # 매물 관리비
+            location_url = f"https://m.land.naver.com/near/article/{atcl_no}" # 매물 주소
 
             description_text = introduction_to_sale.group(1) if introduction_to_sale else ""
             price_text = price.group(1) if price else ""
@@ -119,7 +120,8 @@ for v in values:
                 'atcl_no': atcl_no,
                 'atcl_price': " ".join(price_text.split(' ')[1:]),
                 'atcl_cost': cost_text,
-                'atcl_description': description_text
+                'atcl_description': description_text,
+                'atcl_location': location_url
             }
 
             # article_info를 리스트에 추가
