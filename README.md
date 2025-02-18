@@ -14,12 +14,12 @@
 
 ## options
 
-- tradTpCds = 전세 `&tradTpCd=B1`
-- rletTpCds = 단독/다가구, 빌라 `&rletTpCd=DDDGG,VL`
-- tag = `&tag=TWOROOM,PARKINGYN`
-- 전세가
-- 관리비
-- 3억원 이하
+- ~~tradTpCds = 전세 `&tradTpCd=B1`~~
+- ~~rletTpCds = 단독/다가구, 빌라 `&rletTpCd=DDDGG,VL`~~
+- ~~tag = `&tag=TWOROOM,PARKINGYN`~~
+- ~~전세가~~
+- ~~관리비~~
+- ~~3억원 이하~~
 - TODO: 층수 
 - TODO: 주소지 & 네이버 맵 바로가기
 - TODO: 매물 사진
