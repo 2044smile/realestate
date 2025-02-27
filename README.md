@@ -21,7 +21,6 @@
 - ~~관리비~~
 - ~~3억원 이하~~
 - ~~주소지 & 네이버 맵 바로가기~~
-- TODO: description 에 설명이 없는 매물 제외
 
 ![alt text](image.png)
 
