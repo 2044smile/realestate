@@ -91,6 +91,7 @@ for v in values:
 
         for article in l_data['body']:
             atcl_no = article.get('atclNo')
+            atcl_url = f"https://fin.land.naver.com/articles/{atcl_no}"
 
             if not atcl_no:
                 print("No atclNo found in article.")
@@ -118,6 +119,7 @@ for v in values:
                 'lat': lat2,
                 'lon': lon2,
                 'atcl_no': atcl_no,
+                'atcl_url': atcl_url,
                 'atcl_price': " ".join(price_text.split(' ')[1:]),
                 'atcl_cost': cost_text,
                 'atcl_description': description_text,
