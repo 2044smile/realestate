@@ -22,6 +22,23 @@
     - 늘어나는 코드
   - SPA(Single Page Application) 방식 등장
   ![alt text](image-1.png)
-    - 클라이언트(브라우저)에서 화면을 그리는 방식
+    - 클라이언트(브라우저)에서 화면을 그리는 방식 
     - Javascript를 통해 HTML 생성
     - React, Vue, Angular 등
+
+## 2강 React의 특징
+
+- `컴포넌트 기반 설계`
+![alt text](image-2.png)
+  - 스스로 상태를 관리하는 캡슐화된 코드 조각 
+    - 의미단위로 컴포넌트 구성
+    - 재사용성과 유지보수성 증가
+    - 부모, 자식 관계를 가짐
+- `Virtual DOM (가상돔)`
+![alt text](image-3.png)
+  - 실제 DOM의 복사본으로 SPA에서의 동적인 변화를 효율적으로 관리하기 위해 사용됨
+  - 가상돔에서 변경해두고 반영할 때는 DOM 에서 `동기화` 하는 방식
+- CSR(Client Side Rendering)
+  - 브라우저에서 화면을 랜더링 한다
+- 풍부한 생태계
+  - React Native
