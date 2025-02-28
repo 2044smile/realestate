@@ -80,3 +80,14 @@ ReactDOM.render(
     document.getElementById('root')
 );
 ```
+
+# 4강 JSX에서 Javascript 사용하기
+
+```js
+let text = "Hello, world";
+const num = 3;
+// const obj = {key: 1, value: 0}
+// <li>{obj}</li> 에러 발생
+const arr = [1, 2, 3];
+const imageUrl = 'https://www.naver.com/';
+```
