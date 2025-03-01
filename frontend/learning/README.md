@@ -125,3 +125,25 @@ const element = {
     else return 'ELSE';
 })()}
 ```
+# 6강 JSX에서의 반복문
+
+- React 에서 `key` 는 동적인 리스트 요소를 효율적으로 업데이트하기 위해 필요합니다.
+  - JSX 에서 하나의 독립적인 요소를 렌더링할 때는 `key`가 필요 없음
+
+```js
+const arr = ['10', '20', '30'];
+const arr2 = []
+
+for (let i = 0; i < arr.length; i++) {
+  arr2.push(<h4 key={i}>{arr[i]}</h4>)
+}
+
+<h2>Array.map</h2>
+<ul>
+  <li>
+    {arr.map((item, index) => {  // map() 을 이용해 리스트로 렌더링 할 때 key 가 필요하다.
+      return <h4 key={index}>{item}</h4>
+    })}
+  </li>
+</ul>
+```
