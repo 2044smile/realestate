@@ -90,4 +90,38 @@ const num = 3;
 // <li>{obj}</li> 에러 발생
 const arr = [1, 2, 3];
 const imageUrl = 'https://www.naver.com/';
+
+const element = {
+    <div>
+        <h1>A</h1>
+    </div>
+}
+```
+
+# 5강 JSX에서의 조건문
+
+```js
+<h1>삼항연산자</h1>
+{ 
+    1 + 1 === 2
+    ? '참 입니다.'
+    : '거짓입니다.'
+}
+// 앞에 있는 값이 True 이면 && 뒤에 값을 보여주고, False 라면 빈 값 즉 조건문
+<h1>AND 연산자</h1>
+{1 + 1 === 2 && 'AND 연산자1'}
+{arr.length && 'AND 연산자2'} // arr.length 가 1 이상이면
+{!!arr.length && 'AND 연산자3'}  // !! 은 Boolean 타입으로 False, ! 은 Boolean 타입으로 True
+
+// 앞에 있는 조건이 참이 되면 뒤에 있는 보지 않는다.
+<h1>OR 연산자</h1>
+{1 + 1 !== 2 || 'OR 연산자1'}
+{text || 'OR 연산자2'}
+
+// 자주 사용하지 않는다.
+<h1>IF 문 즉시 실행함수</h1>
+{(() => {
+    if (1 + 1 === 2) return 'IF';
+    else return 'ELSE';
+})()}
 ```
