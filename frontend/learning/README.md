@@ -196,3 +196,28 @@ const roundBoxStyle = {
 import './App.css'
 ```
 
+# 8강 JSX로 구구단 출력하기
+
+```js
+const element = (  
+  <div style={{ display: 'flex'}}>
+    {num.map(
+      (n) =>  // 조건문
+        n >= 2 &&
+        n !== 5 && (
+          <div style={{  // JSX {{}}
+            padding: 10,
+            color: n % 2 ? 'blue' : 'black' // 조건문 2 % 2 = 0 나머지가 0 이면 False('black')
+          }}
+          >
+            {num.map((m) => (
+              <div>
+                {n} x {m} = {n * m}
+              </div>
+            ))}
+          </div>
+       )
+    )}
+  </div>
+);
+```
