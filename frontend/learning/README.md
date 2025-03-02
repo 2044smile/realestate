@@ -134,7 +134,7 @@ const element = {
 const arr = ['10', '20', '30'];
 const arr2 = []
 
-for (let i = 0; i < arr.length; i++) {
+for (let i = 0; i < arr.length; i++) {  // for() 을 이용해 반복문
   arr2.push(<h4 key={i}>{arr[i]}</h4>)
 }
 
