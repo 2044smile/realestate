@@ -272,3 +272,58 @@ export default function Hello() {
     return <h1>Hello</h1>
 }
 ```
+
+# 10강 Props
+
+- 컴포넌트에는 Props 라는 개념이 있다
+  - 상위 컴포넌트에서 하위 컴포넌트로 값을 전달 해야 할 때
+  - 부모 컴포넌트에서 자식 컴포넌트로 내려주는 데이터
+- Object 형태로 속성 이름과 키 전송
+
+```js
+function App () {  // 부모 컴포넌트
+  return (
+    <div>
+      <MyComponent value={'test'}/>
+    </div>
+  );
+}
+
+function MyComponent(props) {  // 자식 컴포넌트
+  return <div>{props.value}</div>;
+}
+```
+
+## Props.children
+
+- 컴포넌트 태그로 감싼 값이 props.children으로 전달됨
+
+### Props 활용 팁
+
+- 구조분해할당 구문을 잘 활용하자
+- 특정 Props에 기본 값을 줄 수 있다 (defaultProps)
+- `Props는 읽기 전용`이다
+
+```js
+function App() {
+  return (
+    <div>
+      <MyComponent>
+    <h1>value</h1>
+      </MyComponet>
+    </div>
+  );
+}
+
+function MyComponet(props) {
+  return <div>{props.children}</div>
+}
+
+export default function Heading(props) {
+    if(props.type === 'h3') {
+        return <h3>{props.children}</h3>
+    }
+    
+    return <h1>{props.children}</h1>
+}
+```

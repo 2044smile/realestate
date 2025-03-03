@@ -1,6 +1,7 @@
 import './App.css'
-import Hello from './Hello'
-import World from './World'
+import Heading from './components/Heading';
+import Hello from './components/Hello'
+import World from './components/World'
 
 const arr = ['10', '20', '30'];
 const arr2 = [];
@@ -51,8 +52,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Hello></Hello>
-        <World></World>
+        <Heading type="h3">Heading</Heading>
+        <Hello />
+        <World />
         <h1>Hello, world</h1>
         <h2>배열로 넣기</h2>
         <ul>
