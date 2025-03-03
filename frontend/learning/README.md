@@ -221,3 +221,54 @@ const element = (
   </div>
 );
 ```
+
+# 9강 컴포넌트란?
+
+- 컴포넌트 단위로 화면이 구성
+  - 스스로 상태를 관리하는 캡슐화된 코드 조각
+  - 하나의 JSX를 반환하는 함수
+
+## 지금까지 했던 JSX와의 차이가 뭘까?
+
+- `컴포넌트는 기본적으로 함수`이기 때문에 자신만의 고유한 로직이 들어갈 수 있다
+- 스스로 상태를 가질 수 있다. (상태가 변하면 알아서 반영됨)
+
+## 컴포넌트 생성 시, 주의사항
+
+- 최상위 컴포넌트 이름은 일반적으로 `App.js`
+  - index.js - entry point. 최종 컴포넌트를 DOM에 render (ReactDOM.render)
+    - 모든 리액트 코드의 entry point
+  - App.js - 모든 컴포넌트들의 root 컴포넌트
+- 컴포넌트 이름은 PascalCase로
+  - MyComponent
+  - ArticlePage
+  - UserProfile
+- 컴포넌트는 의미단위로 쪼개서 파일을 분리한다
+  - Header
+    - Menu
+    - Menu
+  - Banner
+  - RecentLectureSection
+    - Lecture
+
+```js
+function App() {
+  return (
+    <div>
+      <h1>Hello,</h1>
+      <h2>World</h2>
+    </div>
+  );
+}
+ReactDOM.render(
+  <App />
+  document.getElementById('root')
+)
+
+// import Hello from './Hello.js'
+import Hello from './Hello'
+
+export default function Hello() {
+    return <h1>Hello</h1>
+}
+```
