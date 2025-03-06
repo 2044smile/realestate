@@ -327,3 +327,35 @@ export default function Heading(props) {
     return <h1>{props.children}</h1>
 }
 ```
+
+### Props 타입 지정
+
+```js
+import PropTypes from 'prop-types'  // 프로퍼티 타입 지정
+
+function Main({name,color}) {
+  return (
+    <div>
+      <main>
+        <h1 style={{color}}>안녕하세요. {name} 입니다.</h1>
+      </main>
+    </div>
+  );
+}
+
+// 프로퍼티 타입 지정
+Main.propTypes = {
+  name: PropTypes.string  // 문자열로 지정 & string 이 아니라면 경고메세지가 나타난다
+}
+// defaultProps 프로퍼티 기본값 지정
+Main.defaultProps = {  
+  name: 'default'
+}
+// 프로퍼티 필수 값 설정
+Main.propTypes = {
+  name: PropTypes.string.isRequired,
+}
+// Boolean 프로퍼티
+const msg = maleYn ? '남자' : '여자';
+<Main name="갓대희" color="blue" maleYn/>
+```
