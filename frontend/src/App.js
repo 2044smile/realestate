@@ -2,6 +2,7 @@ import './App.css'
 import Heading from './components/Heading';
 import Hello from './components/Hello'
 import World from './components/World'
+import State from './components/State'
 
 const arr = ['10', '20', '30'];
 const arr2 = [];
@@ -99,6 +100,7 @@ function App() {
               구구단은 오른쪽으로 나열되도록 합니다.
             */} 
               {element}
+              <State />
             </div>
           </div> 
         </div>
