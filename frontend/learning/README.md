@@ -465,3 +465,69 @@ export default function State() {  // 2. 상태가 변화 되었으므로 함수
 - 초기에는 클래스형 컴포넌트가 기본이었음
 - 하지만, 클래스형 컴포넌트의 몇 가지 문제로 인해 새로운 방식 고안 (이해하기 어려움, 코드 재활용성 떨어짐 등)
 - 지금은 Hooks 가 완전히 정착하여 기본형으로 사용됨 (클래스형은 레거시로 볼 수 있음)
+
+# 13강 스터디파이 강의 컴포넌트 만들기
+
+## 요구사항 
+
+- 스터디파이에 있는 강의 요소를 직접 컴포넌트로 따라 만들어보세요
+- 이미지 주소, 태그(영어, 패키지, 최대할인), 제목, 가격, 유형(동영상 강의)을 Props로 받아서 처리하세요
+- 태그와 유형은 배열로 전달 받습니다
+- 가격은 3자리 마다 콤마를 찍도록 합니다.
+
+```js
+// App.js
+import CourseCard from './components/CourseCard.js';
+
+
+function App() {
+  return (
+    <div style={{ padding: 30}}>
+      <CourseCard 
+        img="https://dst6jalxvbuf5.cloudfront.net/media/images/Course/cover_image/221020_172526/%E1%84%8F%E1%85%A9%E1%84%89%E1%85%B3%E1%84%8F%E1%85%A1%E1%84%83%E1%85%B3_%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%E1%84%8B%E1%85%A8%E1%84%8C%E1%85%A5%E1%86%BC_PC.png"
+        tags={['커머스', '자기개발', 'SNS']}
+        title="평범한 당신의 인생을 바꾸는 치트키! 월 천+ 버는 퍼스널브랜딩"
+        salePercent={16583}
+        monthlyPrice="51%↓"
+        installmentMonth="/ 12개월"
+        types={['동영상 강의']}
+      />  
+    </div>
+  )
+}
+
+export default App
+// CourseCard.js
+import '../styles/CourseCard.css'
+
+
+function CourseCard({img, tags, title, salePercent, monthlyPrice, installmentMonth, types}) {
+    return (
+    <div className="CourseCard">
+        <div className="cover">
+            <img alt="" src={img}/>
+        </div>
+        <div className="info">
+            <ul class="tags">
+                {tags.map((item, index) => (
+                    <li key={index} class="tag">{item}</li>
+                ))}
+            </ul>
+            <h4 className="name">{title}</h4>
+            <div className="prices">
+                <span className="sale-percent">{salePercent.toLocaleString()}</span>
+                <span className="monthly-price">{monthlyPrice}</span>
+                <span className="installment-month">{installmentMonth}</span>
+            </div>
+            <ul className="types">
+                {types.map((item, index) => (
+                    <li key={index} className={types}>{item}</li>
+                ))}
+            </ul>
+        </div>
+    </div>
+    )
+}
+
+export default CourseCard
+```
