@@ -6,7 +6,7 @@ export default function State() {  // 2. 상태가 변화 되었으므로 함수
 
     return (
         <div>
-            <h1>value: {value}</h1>
+            <h1>function state value: {value}</h1>
             <button onClick={() => {
                 setValue(value + 1);  // 1. 값이 증가가 되면 State Component 에게 전달한다.
             }}>
