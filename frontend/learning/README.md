@@ -109,14 +109,14 @@ const element = {
 }
 // 앞에 있는 값이 True 이면 && 뒤에 값을 보여주고, False 라면 빈 값 즉 조건문
 <h1>AND 연산자</h1>
-{1 + 1 === 2 && 'AND 연산자1'}
+{1 + 1 === 2 && 'AND 연산자1'}  // 만약 거짓이라면 아무것도 출력되지 않는다
 {arr.length && 'AND 연산자2'} // arr.length 가 1 이상이면
 {!!arr.length && 'AND 연산자3'}  // !! 은 Boolean 타입으로 False, ! 은 Boolean 타입으로 True
 
 // 앞에 있는 조건이 참이 되면 뒤에 있는 보지 않는다.
 <h1>OR 연산자</h1>
 {1 + 1 !== 2 || 'OR 연산자1'}
-{text || 'OR 연산자2'}
+{text || 'OR 연산자2'}  // text 에 값이 들어 있다면 text 를 출력, text 에 값이 없다면 'OR 연산자2' 를 출력
 
 // 자주 사용하지 않는다.
 <h1>IF 문 즉시 실행함수</h1>
@@ -163,7 +163,7 @@ for (let i = 0; i < arr.length; i++) {  // for() 을 이용해 반복문
 }}> {/* 첫 번째 {} -> JSX 에서 Javascript 표현식을 사용 할 때 필요, 두 번째 {} -> Javascript 객체를 정의 */} 
   <div style={roundBoxStyle}>Hello 1</div> 
 
-  <div style={{ ...roundBoxStyle, top: 350}}>
+  <div style={{ ...roundBoxStyle, top: 350}}>  {/* ...(Spread Syntax)는 객체를 복사한 후, 특정 속성을 변경할 수 있음 top: 350 */} 
     <div className={"highlight"}>Hello 2</div>  {/* "highlight" 보다 {"highlight"} 하면 JSX 방식으로 사용 */} 
   </div>
   <div style={{ ...roundBoxStyle, top: 650}}>
@@ -199,6 +199,8 @@ import './App.css'
 # 8강 JSX로 구구단 출력하기
 
 ```js
+num = [1,2,3,4,5,6,7,8,9]
+
 const element = (  
   <div style={{ display: 'flex'}}>
     {num.map(
@@ -256,6 +258,7 @@ function App() {
   return (
     <div>
       <h1>Hello,</h1>
+      <Hello />
       <h2>World</h2>
     </div>
   );
@@ -279,12 +282,18 @@ export default function Hello() {
   - 상위 컴포넌트에서 하위 컴포넌트로 값을 전달 해야 할 때
   - 부모 컴포넌트에서 자식 컴포넌트로 내려주는 데이터
 - Object 형태로 속성 이름과 키 전송
+- 컴포넌트의 재사용성(Reusability), 유지보수성(Maintainability), 동적 데이터 활용 (Dynamic Data)훨씬 좋아진다
+  - 
 
 ```js
-function App () {  // 부모 컴포넌트
+// 재사용성
+// 같은 컴포넌트를 여러 번 사용 가능
+function App() {  // 부모 컴포넌트
   return (
     <div>
-      <MyComponent value={'test'}/>
+      <MyComponent value="Hello" />
+      <MyComponent value="World" />
+      <MyComponent value="React is awesome!" />
     </div>
   );
 }
@@ -292,6 +301,54 @@ function App () {  // 부모 컴포넌트
 function MyComponent(props) {  // 자식 컴포넌트
   return <div>{props.value}</div>;
 }
+
+//유지보수성
+// 컴포넌트가 독립적으로 관리됨
+function App() {
+  return (
+    <div>
+      <UserCard name="Alice" age={25} />
+      <UserCard name="Bob" age={30} />
+    </div>
+  );
+}
+
+function UserCard(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+}
+
+// 동적 데이터 활용
+// API나 사용자 입력을 활용할 수 있음
+function App() {
+  const users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 35 },
+  ];
+
+  return (
+    <div>
+      {users.map((user, index) => (
+        <UserCard key={index} name={user.name} age={user.age} />
+      ))}
+    </div>
+  );
+}
+
+function UserCard(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+}
+
 ```
 
 ## Props.children
