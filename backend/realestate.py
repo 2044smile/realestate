@@ -149,7 +149,6 @@ class NaverLandCrawler:
 
 
 # 서울시 전체 구 리스트
-regions = ["강남구"]
-# regions = ["강남구", "서초구", "종로구", "마포구", "송파구", "용산구"]
+regions = ["강남구", "서초구", "종로구", "마포구", "송파구", "용산구"]
 crawler = NaverLandCrawler(regions)
 crawler.run()
