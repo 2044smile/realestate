@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 class NaverLandCrawler:
     def __init__(self, regions, trad_tp_cds=None, rlet_tp_cds=None, tags=None, wprc_max=None, z=None):
         self.base_url = "https://m.land.naver.com"
+        self.detail_url = "https://fin.land.naver.com/articles"
         self.headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
         }
@@ -101,7 +102,7 @@ class NaverLandCrawler:
             print("[Error] 매물 번호 없음")
             return
         
-        atcl_url = f"https://fin.land.naver.com/articles/{atcl_no}"
+        atcl_url = f"{self.detail_url}/{atcl_no}"
         response = requests.get(atcl_url, headers=self.headers)
 
         if response.status_code != 200:
