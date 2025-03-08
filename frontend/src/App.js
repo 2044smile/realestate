@@ -3,6 +3,7 @@ import Heading from './components/Heading';
 import Hello from './components/Hello'
 import World from './components/World'
 import State from './components/State'
+import ClassState from './components/ClassState';
 
 const arr = ['10', '20', '30'];
 const arr2 = [];
@@ -101,6 +102,7 @@ function App() {
             */} 
               {element}
               <State />
+              <ClassState />
             </div>
           </div> 
         </div>
