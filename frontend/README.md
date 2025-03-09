@@ -1,18 +1,5 @@
-# realestate frontend
+# realestate
 
-## 구조
+## Reference
 
-- public: 정적 파일 (HTML, 이미지 등)을 저장하는 폴더
-- src: React 컴포넌트와 Javascript 파일을 저장하는 폴더
-  - assets: 이미지 파일과 같은 정적 자원들을 보관합니다.
-  - components: 재사용 가능한 React 컴포넌트들이 위치하며, 공통 컴포넌트와 페이지별 (도메인별) 컴포넌트로 구분 됩니다.
-  - pages: 각각의 페이지 컴포넌트들이 위치하며, 홈, 클래스, 게시판 등 여러 페이지로 나뉩니다.
-  - routes: 애플리케이션의 라우팅 설정 파일들이 위치합니다.
-  - app: 리덕스 스토어 설정 파일이 위치합니다.
-  - features: 리덕스 슬라이스들이 위치합니다.
-  - utils: 유틸리티 함수들이 위치합니다. 
-    - 프로젝트 전역에서 사용되는 특정 기능 및 작업을 수행하는데 도움을 주는 함수들이 위치합니다.
-  - hooks: 커스텀 훅들이 위치합니다.
-  - styles: 스타일 파일들이 위치합니다.
-
-- package.json: 프로젝트의 메타데이터와 의존성을 관리하는 파일
+- [tailwindcss + vite + react guide](https://www.youtube.com/watch?v=sHnG8tIYMB4)
