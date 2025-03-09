@@ -531,3 +531,37 @@ function CourseCard({img, tags, title, salePercent, monthlyPrice, installmentMon
 
 export default CourseCard
 ```
+
+# 14강 Lifecycle 과 Hooks
+
+## 1강 Hooks 종류
+
+- useState: 상태 값과 그 값을 갱신하는 함수를 반환
+  - 인자: 초기 상태 값
+  - 반환: [상태 변수, 상태에 대한 Setter] eg. [value, setValue]
+- useEffect: 컴포넌트가 렌더링 될 때, 특정 작업을 실행
+  - 인자
+    - 실행하고자 하는 함수 (effect callback)
+      - effect는 정리(clean-up) 함수를 반환할 수 있음
+      - 반환된 함수는 컴포넌트가 언마운트 또는 effect 재실행 이전에 실행됨
+    - 의존성 배열 (dependency list)
+- useCallback: 메모이제이션된 콜백을 반환
+  - 인자 
+    - 메모이제이션 할 함수
+    - 의존성 배열
+  - 반환: 메모이제이션 된 함수
+  *의존성 배열을 제대로 셋팅하지 않으면 함수 안에서 사용되는 값이 업데이트 되지 않은 값 일 수 있음
+```js
+const increaseValue = () => {
+  setValue(value + 1)
+};
+const resetValue = useCallback(() => {
+  setValue(0);
+}, []);
+```
+- useMemo, useContext, useRef, useLLayoutEffect
+
+### 주의사항
+
+- Hooks 는 컴포넌트 안에서만 사용할 수 있다
+
