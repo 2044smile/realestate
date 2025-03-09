@@ -565,3 +565,18 @@ const resetValue = useCallback(() => {
 
 - Hooks 는 컴포넌트 안에서만 사용할 수 있다
 
+## 2강 React 렌더링 과정
+
+- Rerendering: 상태(State, Props)가 변경되면 화면을 다시 그림
+  - 클래스형 컴포넌트의 Lifecycle
+    ![alt text](image-4.png)
+    1. 컴포넌트가 실행(마운트)될 때 constructor가 실행된다
+    2. getDerivedStateFromProps: Props 로 넘어온 값은 State 와 동기화
+    3. render method -> 화면에 그릴 JSX
+    4. DOM 반영
+    5. componentDidMount, componentDidUpdate, componentWWillUnmount
+  - 함수형 컴포넌트의 Lifecycle (주로 사용)
+    ![alt text](image-5.png)
+    1. 자기 자신을 실행한다 
+    2. 반환 된 JSX 값을 DOM 에 반영
+    3. useEffect() -> componentDidMount, componentDidUpdate, componentWWillUnmount
